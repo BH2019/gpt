@@ -44,7 +44,7 @@ index_name = "askgpt"
 
 docsearch = Pinecone.from_texts([t.page_content for t in split_docs], embeddings, index_name=index_name)
 
-llm = OpenAI(temperature=0, openai_api_key=st.secrets["OPENAI_API_KEY"])
+llm = OpenAI(temperature=0, openai_api_key=st.secrets["OPENAI_API_KEY"], model_name="gpt-3.5-turbo")
 chain = load_qa_chain(llm, chain_type="stuff")
 
 st.set_page_config(
